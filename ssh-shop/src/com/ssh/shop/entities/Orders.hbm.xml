@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ssh.shop.entities.Orders" table="orders">
+        <id name="oid" type="java.lang.String">
+            <column name="oid" />
+            <generator class="uuid" />
+        </id>
+        <property name="ordertime" type="java.util.Date">
+            <column name="ordertime" />
+        </property>
+        <property name="total" type="java.lang.Integer">
+            <column name="total" />
+        </property>
+        <property name="state" type="java.lang.Integer">
+            <column name="state" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="telephone" />
+        </property>
+        <many-to-one name="user" class="com.ssh.shop.entities.User">
+            <column name="uid" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

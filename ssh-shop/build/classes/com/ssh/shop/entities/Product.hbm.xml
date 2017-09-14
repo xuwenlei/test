@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ssh.shop.entities.Product" table="product">
+        <id name="pid" type="java.lang.String">
+            <column name="pid" />
+            <generator class="uuid" />
+        </id>
+        <property name="pname" type="java.lang.String">
+            <column name="pname" />
+        </property>
+        <property name="marketPrice" type="double">
+            <column name="market_price" />
+        </property>
+        <property name="shopPrice" type="double">
+            <column name="shop_price" />
+        </property>
+        <property name="pimage" type="java.lang.String">
+            <column name="pimage" />
+        </property>
+        <property name="pdate" type="java.util.Date">
+            <column name="pdate" />
+        </property>
+        <property name="isHot" type="java.lang.Integer">
+            <column name="is_hot" />
+        </property>
+        <property name="pdesc" type="java.lang.String">
+            <column name="pdesc" />
+        </property>
+        <property name="pflag" type="java.lang.Integer">
+            <column name="pflag" />
+        </property>
+        <many-to-one name="category" class="com.ssh.shop.entities.Category" lazy="false">
+            <column name="cid" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

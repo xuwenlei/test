@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ssh.shop.entities.OrderItem" table="orderitem">
+        <id name="itemid" type="java.lang.String">
+            <column name="itemid" />
+            <generator class="uuid" />
+        </id>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="subtotal" type="double">
+            <column name="subtotal" />
+        </property>
+        <many-to-one name="product" class="com.ssh.shop.entities.Product">
+            <column name="pid" />
+        </many-to-one>
+        <many-to-one name="orders" class="com.ssh.shop.entities.Orders">
+            <column name="oid" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
